@@ -1,5 +1,6 @@
 package tom.com.atm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+
+    boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        if(!login){
+        Intent intent = new Intent(this, Login2Activity.class);
+            startActivity(intent);
+        }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
