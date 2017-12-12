@@ -1,5 +1,6 @@
 package tom.com.atm;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,9 +21,13 @@ public class Login2Activity extends AppCompatActivity {
         EditText edPasswd = (EditText)findViewById(R.id.passwd);
         String userid = edUserid.getText().toString();
         String passwd = edPasswd.getText().toString();
-        if("jonathan".equals(userid)&&"1234".equals(passwd)){
+        if("jonathan".equals(userid) && "1234".equals(passwd)){
             Toast.makeText(this,"登入成功",Toast.LENGTH_LONG).show();
-            finish();
+            getIntent().putExtra("LOGIN_USERID",userid); // 不知道?
+            getIntent().putExtra("LOGIN_PASSWD",passwd); // 不知道?
+            setResult(RESULT_OK,getIntent()); //  不知道?
+            Intent intent = new Intent(this, UserInfoActivity.class);
+            startActivity(intent);
         }else{
             new AlertDialog.Builder(this)
                     .setTitle("登入")
