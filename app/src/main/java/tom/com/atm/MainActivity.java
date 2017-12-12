@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private final static int REQUEST_LOGIN = 102;
+    private final static int REQUEST_USERINFO = 105;
     boolean logon = false;
 
     @Override
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 String userid = data.getStringExtra("LOGIN_USERID");
                 String passwd = data.getStringExtra("LOGIN_PASSWD");
                 Log.d("RESULT", userid + "/" + passwd);
+
             } else {
                 finish();
             }
@@ -46,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+          Intent intent2 = new Intent(MainActivity.this, UserInfoActivity.class);
+                startActivityForResult(intent2,REQUEST_USERINFO);
             }
         });
     }

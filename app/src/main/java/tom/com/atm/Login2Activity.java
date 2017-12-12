@@ -26,8 +26,8 @@ public class Login2Activity extends AppCompatActivity {
             getIntent().putExtra("LOGIN_USERID",userid); // 不知道?
             getIntent().putExtra("LOGIN_PASSWD",passwd); // 不知道?
             setResult(RESULT_OK,getIntent()); //  不知道?
-            Intent intent = new Intent(this, UserInfoActivity.class);
-            startActivity(intent);
+            Intent intent = new Intent(this, MainActivity.class);
+            finish();
         }else{
             new AlertDialog.Builder(this)
                     .setTitle("登入")
