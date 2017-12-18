@@ -8,22 +8,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static tom.com.atm.R.id.ed_Userid;
+
 public class Login2Activity extends AppCompatActivity {
+
+    
+    private EditText edUserid;
+    private EditText edPasswd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
-    }
-
-    private EditText edUserid;
-    private EditText edPasswd;
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        edUserid = (EditText) findViewById(R.id.userid);
-        edPasswd = (EditText) findViewById(R.id.passwd);
+        edUserid = (EditText) findViewById(ed_Userid);
+        edPasswd = (EditText) findViewById(R.id.ed_Passwd);
         String userid = getSharedPreferences("atm", MODE_PRIVATE)
                 .getString("USERID", "");
         edUserid.setText(userid);
@@ -32,8 +30,8 @@ public class Login2Activity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        EditText edUserid = (EditText) findViewById(R.id.edUserid);
-        EditText edPasswd = (EditText) findViewById(R.id.edPasswd);
+        EditText edUserid = (EditText) findViewById(ed_Userid);
+        EditText edPasswd = (EditText) findViewById(R.id.ed_Passwd);
         String userid = edUserid.getText().toString();
         String passwd = edPasswd.getText().toString();
         if ("jonathan".equals(userid) && "1234".equals(passwd)) {

@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import static tom.com.atm.R.id.ed_Name;
+import static tom.com.atm.R.id.ed_Phone;
 
 public class UserInfoActivity extends AppCompatActivity {
 
@@ -16,22 +18,22 @@ public class UserInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
-        edName = (EditText) findViewById(R.id.edname);
-        edPhone = (EditText) findViewById(R.id.edphone);
-        String edname = getSharedPreferences("info", MODE_PRIVATE)
+        EditText edName = (EditText) findViewById(ed_Name);
+        EditText edPhone = (EditText) findViewById(ed_Phone);
+        String name = getSharedPreferences("info", MODE_PRIVATE)
                 .getString("NAME","");
-        String edphone = getSharedPreferences("info", MODE_PRIVATE)
+        String phone = getSharedPreferences("info", MODE_PRIVATE)
                 .getString("PHONE", "");
-        edName.setText(edname);
-        edPhone.setText(edphone);
+        edName.setText(name);
+        edPhone.setText(phone);
 
     }
 
     public void back(View view) {
-        String edname = edName.getText().toString();
-        String edphone = edPhone.getText().toString();
-        getIntent().putExtra("EXTRA_NAME", edname);
-        getIntent().putExtra("EXTRA_PHONE", edphone);
+        String name = edName.getText().toString();
+        String phone = edPhone.getText().toString();
+        getIntent().putExtra("EXTRA_NAME", name);
+        getIntent().putExtra("EXTRA_PHONE", phone);
         setResult(RESULT_OK, getIntent());
         finish();
 
