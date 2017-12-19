@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, UserInfoActivity.class);
-                startActivityForResult(i, REQUEST_USERINFO);
+                startActivityForResult(i, REQUEST_USERINFO);    //ForResult是重點
             }
         });
     }
