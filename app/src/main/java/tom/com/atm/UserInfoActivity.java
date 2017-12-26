@@ -1,5 +1,6 @@
 package tom.com.atm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,8 +31,8 @@ public class UserInfoActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, data);
         ages.setAdapter(adapter);
 
-        EditText edName = (EditText) findViewById(ed_Name);
-        EditText edPhone = (EditText) findViewById(ed_Phone);
+         edName = (EditText) findViewById(ed_Name);
+         edPhone = (EditText) findViewById(ed_Phone);
         String name = getSharedPreferences("info", MODE_PRIVATE)
                 .getString("NAME","");
         String phone = getSharedPreferences("info", MODE_PRIVATE)
@@ -50,6 +51,10 @@ public class UserInfoActivity extends AppCompatActivity {
         finish();
 
     }
+    public void address (View view) {
+        Intent intent = new Intent(this, CityActivity.class);
+        startActivity(intent);
+    }
 
 
-}
+    }
