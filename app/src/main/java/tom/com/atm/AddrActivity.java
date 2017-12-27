@@ -15,22 +15,27 @@ public class AddrActivity extends AppCompatActivity {
 
     private Spinner spCity;
     private Spinner spArea;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addr);
         spCity = (Spinner) findViewById(R.id.sp_City);
-        spArea = (Spinner)findViewById(R.id.sp_Area);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, new String[]{"AA","BB","CC"});
+        spArea = (Spinner) findViewById(R.id.sp_Area);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, new String[]{"AA", "BB", "CC"});
         spCity.setAdapter(adapter);
         spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String[] data = null;
-                if(position == 1){
-                    data = new String[]{"1","2","3"};
+                if (position == 0) {
+                    data = new String[]{"1", "2", "3"};
                 }
-                ArrayAdapter adapter1 = new ArrayAdapter(AddrActivity.this, android.R.layout.simple_list_item_1,data);
+                if (position == 1) {
+                    data = new String[]{"4", "5", "6"};
+                }
+                ArrayAdapter adapter1 = new ArrayAdapter(AddrActivity.this, android.R.layout.simple_list_item_1, data);
+                spArea.setAdapter(adapter1);
             }
 
             @Override
